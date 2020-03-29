@@ -1,27 +1,27 @@
 #######################################
-# Syntax Coloring Map For ESP8266httpUpdate
+# Syntax Coloring Map For ESPDownload
 #######################################
 
 #######################################
 # Library (KEYWORD3)
 #######################################
 
-ESP8266httpUpdate	KEYWORD3		RESERVED_WORD
+ESPDownload	KEYWORD3		RESERVED_WORD
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-ESPDownloadResult	KEYWORD1		DATA_TYPE
-ESPhDownload	KEYWORD1		DATA_TYPE
+DownloadResult	KEYWORD1		DATA_TYPE
+ESPDownload	KEYWORD1		DATA_TYPE
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-download	KEYWORD2
-getLastError	KEYWORD2
-getLastErrorString	KEYWORD2
+getFile KEYWORD2
+clearDir KEYWORD2
+fileExists KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
