@@ -1,6 +1,6 @@
 # ESPDownload (ESP32 / ES8266)
 
-An ESP32 / ESP8266 library to download any file from a url and asve to a File System,
+An ESP32 / ESP8266 library to download any file from a url and save to a File System,
 or output file to a Stream (Serial, SDCard, File...);
 
 Obs. Not tested on esp8266
@@ -29,7 +29,7 @@ void setup(){
       return;
   }
   
-  downloader.getFile(fileUrl, file);
+  downloader.getFile(fileUrl, filePath);
 
 }
 

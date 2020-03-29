@@ -21,7 +21,7 @@ void setup(){
       return;
   }
   
-  downloader.getFile(fileUrl, file);
+  downloader.getFile(fileUrl, filePath);
 
 }
 
