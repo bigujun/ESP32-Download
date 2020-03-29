@@ -45,7 +45,7 @@ ESPDownload::ESPDownload(FS* fs, int timeout):_fs(fs),_timeout(timeout)
 DownloadResult ESPDownload::getFile(const String& url, const String& path)
 {
     if(_fs==nullptr){
-        Serial.println("File sistem not defined!");
+        log_e("File sistem not defined!");
         return HTTP_DOWNLOAD_FAILED;
     }
     
@@ -55,11 +55,12 @@ DownloadResult ESPDownload::getFile(const String& url, const String& path)
 
     File file = _fs->open(path, FILE_WRITE);
     if (!file) {
-        Serial.println("Can not open file!");
+        log_e("Can not open file!");
         return HTTP_DOWNLOAD_FAILED;
     }
-    getFile(url, file);
+    auto res = getFile(url, file);
     file.close();
+    return res;
 }
 
 
@@ -85,7 +86,7 @@ DownloadResult ESPDownload::handleDownload(HTTPClient& http, Stream& outStream)
 
     DownloadResult ret = HTTP_DOWNLOAD_FAILED;
 
-    // use HTTP/1.0 for update since the update handler not support any transfer Encoding
+    // use HTTP/1.0 for update since the handler not support any transfer Encoding
     http.useHTTP10(true);
     http.setTimeout(_timeout);
 
@@ -164,7 +165,6 @@ void ESPDownload::clearDir(const char* path){
   if(!dir.isDirectory())return;
 
   File f = dir.openNextFile();
-  Serial.println();
   while(f){
     String rmfile = f.name();
     f.close();
